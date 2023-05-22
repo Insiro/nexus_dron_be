@@ -8,6 +8,9 @@ import repository.DroneRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 
 @Service
 public class DroneService {
@@ -15,6 +18,15 @@ public class DroneService {
 
     DroneService(DroneRepository droneRepository) {
         this.droneRepository = droneRepository;
+    }
+
+    protected Drone loadOne(UUID uid) {
+        Optional<Drone> drone = droneRepository.findById(uid);
+        return drone.get();
+    }
+
+    protected void deleteOne(Drone drone) {
+        droneRepository.delete(drone);
     }
 
     public List<DroneDTO> getAll() {
@@ -36,5 +48,15 @@ public class DroneService {
 
         droneRepository.save(drone);
         return DroneDTO.builder().drone(drone).build();
+    }
+
+    public DroneDTO getOne(UUID uid) {
+        return DroneDTO.builder().drone(loadOne(uid)).build();
+    }
+
+
+    public void delete(UUID uid) {
+        Drone drone = loadOne(uid);
+        deleteOne(drone);
     }
 }
