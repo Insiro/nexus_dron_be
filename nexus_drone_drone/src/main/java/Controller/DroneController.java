@@ -20,11 +20,11 @@ public class DroneController {
 
     @GetMapping
     public ResponseEntity<Iterable<DroneDTO>> getAllDrones() {
-        return new ResponseEntity(droneService.getAll(), HttpStatus.OK);
+        return new ResponseEntity<>(droneService.getAll(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<DroneDTO> addDrone(@RequestBody NewDroneRequestDTO newDroneRequestDTO) {
-        return new ResponseEntity(droneService.newDrone(newDroneRequestDTO), HttpStatus.OK);
+        return new ResponseEntity<>(droneService.newDrone(newDroneRequestDTO), HttpStatus.OK);
     }
 }

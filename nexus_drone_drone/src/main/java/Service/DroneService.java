@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class DroneService {
-    private DroneRepository droneRepository;
+    final private DroneRepository droneRepository;
 
     DroneService(DroneRepository droneRepository) {
         this.droneRepository = droneRepository;
@@ -19,7 +19,7 @@ public class DroneService {
 
     public List<DroneDTO> getAll() {
         List<Drone> drones = droneRepository.findAll();
-        ArrayList<DroneDTO> droneDTOs = new ArrayList();
+        ArrayList<DroneDTO> droneDTOs = new ArrayList<>();
         for (Drone drone : drones) {
             DroneDTO droneDto = DroneDTO.builder().drone(drone).build();
             droneDTOs.add(droneDto);
