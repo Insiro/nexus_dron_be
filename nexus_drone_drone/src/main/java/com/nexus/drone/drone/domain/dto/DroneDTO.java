@@ -13,7 +13,7 @@ public class DroneDTO {
     String name;
     Position position;
     float battery; // 0 ~100
-    Date manageId; // pending management date
+    Date manageDate; // pending management date
     long stateId; //Drone State id
     long typeId; //Drone Type id
     UUID modelId; // model id
@@ -21,8 +21,8 @@ public class DroneDTO {
     public DroneDTO(Drone drone){
         this.uid = drone.getUid();
         this.name= drone.getName();
-        this.position = new Position(drone.getLatitude(), drone.getLongitude());
-        this.manageId = drone.getManageDate();
+        this.position = drone.getPosition();
+        this.manageDate = drone.getManageDate();
         this.stateId = drone.getStateId();
         this.typeId = drone.getTypeId();
         this.modelId = drone.getModelId();

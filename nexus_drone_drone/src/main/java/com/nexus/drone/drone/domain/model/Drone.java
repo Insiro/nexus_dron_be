@@ -34,10 +34,11 @@ public class Drone {
     @Column
     UUID modelId; // model id
     @Builder
-    Drone(String name, Position position, UUID modelId){
+    Drone(String name, UUID modelId){
+        this.uid = UUID.randomUUID();
         this.name = name;
-        this.latitude = position.getLatitude();
-        this.longitude = position.getLongitude();
+        this.longitude = 0f;
+        this.latitude = 0f;
         this.battery = 100f;
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
@@ -46,5 +47,14 @@ public class Drone {
         this.manageDate = cal.getTime();
         this.stateId =0;
         this.modelId = modelId;
+    }
+
+    public Position getPosition(){
+        return new Position(latitude, longitude);
+    }
+
+    public void setPosition(Position position){
+        this.latitude = position.getLatitude();
+        this.longitude = position.getLongitude();
     }
 }
