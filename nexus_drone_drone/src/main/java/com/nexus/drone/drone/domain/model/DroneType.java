@@ -1,9 +1,7 @@
 package com.nexus.drone.drone.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,5 +12,11 @@ public class DroneType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     long uid;
+    @Column
     String name;
+
+    @Builder
+    DroneType(String name) {
+        this.name = name;
+    }
 }

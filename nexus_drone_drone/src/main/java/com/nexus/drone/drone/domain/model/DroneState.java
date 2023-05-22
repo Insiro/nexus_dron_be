@@ -1,6 +1,7 @@
 package com.nexus.drone.drone.domain.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,4 +14,8 @@ public class DroneState {
     long uid;
     @Column
     String desc;
+    @Builder
+    DroneState(String desc){
+        this.desc = desc;
+    }
 }
