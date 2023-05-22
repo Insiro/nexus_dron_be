@@ -1,6 +1,7 @@
 package com.nexus.drone.drone.domain.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,4 +16,9 @@ public class DroneModel {
     UUID uuid;
     @Column
     String name;
+    @Builder
+    DroneModel(String name){
+        this.uuid = UUID.randomUUID();
+        this.name = name;
+    }
 }
