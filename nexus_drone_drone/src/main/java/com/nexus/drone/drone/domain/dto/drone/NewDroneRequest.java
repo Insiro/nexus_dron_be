@@ -1,4 +1,4 @@
-package com.nexus.drone.drone.domain.dto;
+package com.nexus.drone.drone.domain.dto.drone;
 
 import lombok.Data;
 

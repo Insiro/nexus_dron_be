@@ -1,8 +1,8 @@
 package Service;
 
-import com.nexus.drone.drone.domain.dto.NewDroneRequest;
 import com.nexus.drone.drone.domain.dto.Position;
-import com.nexus.drone.drone.domain.dto.UpdateDroneStateRequest;
+import com.nexus.drone.drone.domain.dto.drone.NewDroneRequest;
+import com.nexus.drone.drone.domain.dto.drone.UpdateDroneStateRequest;
 import com.nexus.drone.drone.domain.model.Drone;
 import org.springframework.stereotype.Service;
 import repository.DroneRepository;
@@ -36,7 +36,7 @@ public class DroneService {
 
     public Drone getOne(UUID uid) {
         Optional<Drone> drone = droneRepository.findById(uid);
-        return drone.get();
+        return drone.orElseThrow();
     }
 
     public void delete(Drone drone) {

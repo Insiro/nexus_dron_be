@@ -1,5 +1,6 @@
-package com.nexus.drone.drone.domain.dto;
+package com.nexus.drone.drone.domain.dto.drone;
 
+import com.nexus.drone.drone.domain.dto.Position;
 import lombok.Data;
 
 import java.util.Date;

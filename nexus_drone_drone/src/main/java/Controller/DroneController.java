@@ -2,9 +2,9 @@ package Controller;
 
 
 import Service.DroneService;
-import com.nexus.drone.drone.domain.dto.DroneDTO;
-import com.nexus.drone.drone.domain.dto.NewDroneRequest;
-import com.nexus.drone.drone.domain.dto.UpdateDroneStateRequest;
+import com.nexus.drone.drone.domain.dto.drone.DroneDTO;
+import com.nexus.drone.drone.domain.dto.drone.NewDroneRequest;
+import com.nexus.drone.drone.domain.dto.drone.UpdateDroneStateRequest;
 import com.nexus.drone.drone.domain.model.Drone;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
