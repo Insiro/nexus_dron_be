@@ -35,6 +35,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/nexus_drone_notice" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/nexus_drone_notice" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/nexus_drone_user" />
         <option name="modules">
           <set>
