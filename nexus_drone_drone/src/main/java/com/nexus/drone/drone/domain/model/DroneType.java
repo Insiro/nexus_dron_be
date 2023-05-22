@@ -4,15 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
 @NoArgsConstructor
+@Data
 @Entity
 public class DroneType {
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    UUID uid;
+    long uid;
     String name;
 }

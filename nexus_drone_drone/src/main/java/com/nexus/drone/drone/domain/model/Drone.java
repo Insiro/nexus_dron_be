@@ -1,12 +1,17 @@
 package com.nexus.drone.drone.domain.model;
 
+import com.nexus.drone.drone.domain.dto.Position;
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
+@Data
 @NoArgsConstructor
 public class Drone {
     @Id
@@ -21,11 +26,25 @@ public class Drone {
     @Column
     float battery; // 0 ~100
     @Column
-    Date manage; // pending management date
+    Date manageDate; // pending management date
     @Column
-    UUID state; //Drone State id
+    long stateId; //Drone State id
     @Column
-    UUID type; //Drone Type id
+    long typeId; //Drone Type id
     @Column
-    UUID model; // model id
+    UUID modelId; // model id
+    @Builder
+    Drone(String name, Position position, UUID modelId){
+        this.name = name;
+        this.latitude = position.getLatitude();
+        this.longitude = position.getLongitude();
+        this.battery = 100f;
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.YEAR, 1);
+        this.manageDate = cal.getTime();
+        this.stateId =0;
+        this.modelId = modelId;
+    }
 }
