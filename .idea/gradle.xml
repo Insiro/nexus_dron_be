@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/nexus_drone_board" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/nexus_drone_board" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/nexus_drone_drone" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/nexus_drone_drone" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/nexus_drone_eureka" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/nexus_drone_eureka" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/nexus_drone_gateway" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/nexus_drone_gateway" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/nexus_drone_user" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/nexus_drone_user" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
