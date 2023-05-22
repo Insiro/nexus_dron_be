@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: user_service
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/gcumall?createDatabaseIfNotExist=true&useUnicode=true&charaterEncoding=UTF-8&characterSetResults=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: X-mas1225
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+  data:
+    rest:
+      base-path: /api
+      default-page-size: 10
+      max-page-size: 10
+
+
