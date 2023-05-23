@@ -10,6 +10,7 @@
         </processorPath>
         <module name="nexus_drone_gateway.main" />
         <module name="nexus_drone_user.main" />
+        <module name="com.nexus.drone.nexus_drone_notice.main" />
       </profile>
     </annotationProcessing>
   </component>

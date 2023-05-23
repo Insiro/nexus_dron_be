@@ -20,3 +20,12 @@ spring:
       base-path: /api
       default-page-size: 10
       max-page-size: 10
+eureka:
+  instance:
+    preferIpAddress: true
+    lease-renewal-interval-in-seconds: 30
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:18001/eureka/
