@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/drones/states")
+@RequestMapping("/drones/types")
 public class TypeController {
     public final TypeService service;
 

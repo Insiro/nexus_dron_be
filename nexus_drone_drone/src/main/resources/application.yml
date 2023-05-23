@@ -1,5 +1,5 @@
 server:
-  port: 18003
+  port: 18083
 spring:
   application:
     name: drone_service
@@ -8,8 +8,6 @@ spring:
     username: admin
     password: 1210
     driver-class-name: com.mysql.cj.jdbc.Driver
-  config:
-    import: "optional:configserver:"
 
   jpa:
     hibernate:
