@@ -1,3 +1,25 @@
+server:
+  port: 18003
+spring:
+  application:
+    name: drone_service
+  datasource:
+    url: jdbc:mysql://14.35.246.224:3306/gcumall?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+    username: admin
+    password: 1210
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  config:
+    import: "optional:configserver:"
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+  data:
+    rest:
+      base-path: /api
+      default-page-size: 10
+      max-page-size: 10
 eureka:
   instance:
     preferIpAddress: true
