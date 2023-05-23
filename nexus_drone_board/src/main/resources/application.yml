@@ -26,3 +26,12 @@ spring:
 handlebars:
   suffix: .html
   expose-session-attribute: true
+eureka:
+  instance:
+    preferIpAddress: true
+    lease-renewal-interval-in-seconds: 30
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:18001/eureka/
