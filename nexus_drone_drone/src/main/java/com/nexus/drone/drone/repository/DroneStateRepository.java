@@ -1,4 +1,4 @@
-package repository;
+package com.nexus.drone.drone.repository;
 
 import com.nexus.drone.drone.domain.model.DroneState;
 import org.springframework.data.jpa.repository.JpaRepository;

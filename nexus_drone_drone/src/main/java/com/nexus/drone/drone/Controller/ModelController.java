@@ -1,6 +1,6 @@
-package Controller;
+package com.nexus.drone.drone.Controller;
 
-import Service.ModelService;
+import com.nexus.drone.drone.Service.ModelService;
 import com.nexus.drone.drone.domain.dto.model.ModelDTO;
 import com.nexus.drone.drone.domain.dto.model.NewModelRequest;
 import com.nexus.drone.drone.domain.dto.model.UpdateModelRequest;

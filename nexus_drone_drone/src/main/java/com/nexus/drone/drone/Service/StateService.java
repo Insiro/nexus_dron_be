@@ -1,10 +1,10 @@
-package Service;
+package com.nexus.drone.drone.Service;
 
 
 import com.nexus.drone.drone.domain.dto.state.NewStateRequest;
 import com.nexus.drone.drone.domain.model.DroneState;
+import com.nexus.drone.drone.repository.DroneStateRepository;
 import org.springframework.stereotype.Service;
-import repository.DroneStateRepository;
 
 import java.util.List;
 import java.util.UUID;

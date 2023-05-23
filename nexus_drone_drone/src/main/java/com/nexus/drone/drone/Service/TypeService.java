@@ -1,10 +1,10 @@
-package Service;
+package com.nexus.drone.drone.Service;
 
 
 import com.nexus.drone.drone.domain.dto.type.NewTypeDTO;
 import com.nexus.drone.drone.domain.model.DroneType;
+import com.nexus.drone.drone.repository.DroneTypeRepository;
 import org.springframework.stereotype.Service;
-import repository.DroneTypeRepository;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,6 +1,6 @@
-package Controller;
+package com.nexus.drone.drone.Controller;
 
-import Service.StateService;
+import com.nexus.drone.drone.Service.StateService;
 import com.nexus.drone.drone.domain.dto.state.NewStateRequest;
 import com.nexus.drone.drone.domain.dto.state.StateDTO;
 import com.nexus.drone.drone.domain.model.DroneState;
