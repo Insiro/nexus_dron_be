@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface DroneStateRepository extends JpaRepository<DroneState, UUID> {
+public interface DroneStateRepository extends JpaRepository<DroneState, Long> {
 }
