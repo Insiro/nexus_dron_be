@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-
 @Service
 public class DroneService {
     final private DroneRepository droneRepository;
@@ -45,15 +44,22 @@ public class DroneService {
 
     public Drone update(Drone drone, UpdateDroneStateRequest updateDroneStateRequest) {
         Position position = updateDroneStateRequest.getPosition();
+        Date manageDate = updateDroneStateRequest.getManageDate();
+        long typeId = updateDroneStateRequest.getTypeId();
+        float battery = updateDroneStateRequest.getBattery();
+        long state_id = updateDroneStateRequest.getStateId();
         if (position != null)
             drone.setPosition(position);
-        Date manageDate = updateDroneStateRequest.getManageDate();
         if (manageDate != null)
             drone.setManageDate(manageDate);
-        drone.setTypeId(updateDroneStateRequest.getTypeId());
-        drone.setBattery(updateDroneStateRequest.getBattery());
-        drone.setStateId(updateDroneStateRequest.getStateId());
+        if (typeId != 0)
+            drone.setTypeId(typeId);
+        if (battery != 0f)
+            drone.setBattery(battery);
+        if (state_id!= 0)
+            drone.setStateId(state_id);
         droneRepository.save(drone);
         return drone;
     }
 }
+

@@ -18,7 +18,6 @@ public class DroneModel {
     String name;
     @Builder
     DroneModel(String name){
-        this.uuid = UUID.randomUUID();
         this.name = name;
     }
 }

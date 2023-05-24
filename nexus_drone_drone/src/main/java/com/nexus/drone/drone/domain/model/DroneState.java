@@ -13,9 +13,9 @@ public class DroneState {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long uid;
     @Column
-    String desc;
+    String name;
     @Builder
-    DroneState(String desc){
-        this.desc = desc;
+    DroneState(String name){
+        this.name = name;
     }
 }

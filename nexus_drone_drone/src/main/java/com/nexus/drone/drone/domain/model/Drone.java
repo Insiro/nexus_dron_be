@@ -35,7 +35,6 @@ public class Drone {
     UUID modelId; // model id
     @Builder
     Drone(String name, UUID modelId){
-        this.uid = UUID.randomUUID();
         this.name = name;
         this.longitude = 0f;
         this.latitude = 0f;
@@ -45,8 +44,9 @@ public class Drone {
         cal.setTime(date);
         cal.add(Calendar.YEAR, 1);
         this.manageDate = cal.getTime();
-        this.stateId =0;
+        this.stateId =1;
         this.modelId = modelId;
+        this.typeId = 1;
     }
 
     public Position getPosition(){
