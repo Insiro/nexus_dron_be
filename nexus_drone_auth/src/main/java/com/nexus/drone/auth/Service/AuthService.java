@@ -23,10 +23,15 @@ public class AuthService {
     private final RefreshTokenRepository refreshTokenRepository;
 
     @Transactional
-    public Map<String,String> makeToken(String UUID){
+    public Map<String,String> makeToken(String UUID,String role){
 
-        String AccessKey = jwtUtil.createAccessToken(UUID);
-        String RefreshKey = jwtUtil.createRefreshToken(UUID);
+        Map<String,Object> user = new HashMap<>();
+
+        user.put("UUID", UUID);
+        user.put("Role", role);
+
+        String AccessKey = jwtUtil.createAccessToken(user);
+        String RefreshKey = jwtUtil.createRefreshToken(user);
 
         RefreshToken refreshToken = RefreshToken.builder().UUID(UUID).refreshToken(RefreshKey).build();
         if(refreshTokenRepository.existsByUUID(UUID)){
@@ -54,15 +59,13 @@ public class AuthService {
 
         RefreshToken refreshToken1 = getRefreshToken(refreshToken).get();
 
-        String UUID = refreshToken1.getUUID();
-
-        boolean RefreshStatus = jwtUtil.RefreshisValid(refreshToken1.getRefreshToken());
+        boolean RefreshStatus = jwtUtil.isValid(refreshToken1.getRefreshToken());
         
-        return createRefreshJson(RefreshStatus,UUID);
+        return createRefreshJson(RefreshStatus,refreshToken);
 
     }
 
-    public Map<String, String> createRefreshJson(boolean RefreshTokenStatus, String UUID){
+    public Map<String, String> createRefreshJson(boolean RefreshTokenStatus,String refreshToken){
 
         Map<String, String> map = new HashMap<>();
         if(!RefreshTokenStatus){
@@ -76,7 +79,9 @@ public class AuthService {
         }
         //기존에 존재하는 accessToken 제거
 
-        String createdAccessToken = jwtUtil.createAccessToken(UUID);
+        Map<String,Object> user = jwtUtil.getUserFromToken(refreshToken);
+
+        String createdAccessToken = jwtUtil.createAccessToken(user);
 
         map.put("status", "200");
         map.put("message", "Refresh 토큰을 통한 Access Token 생성이 완료되었습니다.");

@@ -1,6 +1,7 @@
 package com.nexus.drone.gateway;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;
@@ -17,6 +18,7 @@ import org.springframework.web.server.ServerWebExchange;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
+import com.auth0.jwt.interfaces.Header;
 import com.nexus.drone.gateway.JWT.JwtUtil;
 
 import reactor.core.publisher.Flux;
@@ -45,7 +47,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 
             String token = extractToken(request);
 
-            String userInfo = jwtUtil.getUUIDFromToken(token.substring(7));   // 파싱된 토큰의 claim을 추출해 아이디 값을 가져온다.
+            Map<String,Object> userInfo = jwtUtil.getUserFromToken(token.substring(7));   // 파싱된 토큰의 claim을 추출해 아이디 값을 가져온다.
 
             addAuthorizationHeaders(exchange.getRequest(), userInfo);
 
@@ -67,9 +69,10 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
         return response.writeWith(Mono.just(buffer));
     }
     
-    private void addAuthorizationHeaders(ServerHttpRequest request, String uuid) {
+    private void addAuthorizationHeaders(ServerHttpRequest request, Map<String,Object> userinfo) {
         request.mutate()
-                .header("X-Authorization-Id", uuid)
+                .header("X-Authorization-UUID", userinfo.get("UUID").toString())
+                .header("X-Authorization-Role", userinfo.get("Role").toString())
                 .build();
     }
     
