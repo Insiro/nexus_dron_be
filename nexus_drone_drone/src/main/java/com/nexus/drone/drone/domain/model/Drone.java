@@ -35,7 +35,6 @@ public class Drone {
     UUID modelId; // model id
     @Builder
     Drone(String name, UUID modelId){
-        this.uid = UUID.randomUUID();
         this.name = name;
         this.longitude = 0f;
         this.latitude = 0f;

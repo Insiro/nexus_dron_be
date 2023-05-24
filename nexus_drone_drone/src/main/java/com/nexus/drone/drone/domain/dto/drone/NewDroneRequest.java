@@ -10,5 +10,5 @@ public class NewDroneRequest {
     String droneName;
     UUID droneModel;
     Date manageDate;
-    UUID typeId;
+    long typeId;
 }

@@ -20,7 +20,7 @@ public class StateService {
     }
 
     public DroneState newState(NewStateRequest newStateRequest) {
-        DroneState model =DroneState.builder().desc(newStateRequest.getDesc()).build();
+        DroneState model =DroneState.builder().name(newStateRequest.getName()).build();
         return repository.save(model);
     }
 
@@ -31,7 +31,7 @@ public class StateService {
         repository.delete(model);
     }
     public DroneState update(DroneState model, NewStateRequest newStateRequest){
-        model.setDesc(newStateRequest.getDesc());
+        model.setName(newStateRequest.getName());
         model = repository.save(model);
         return model;
     }

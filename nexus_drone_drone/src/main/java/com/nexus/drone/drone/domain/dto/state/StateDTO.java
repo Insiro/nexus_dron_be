@@ -7,10 +7,10 @@ import lombok.Data;
 @Data
 public class StateDTO {
     long uid;
-    String  desc;
+    String name;
     @Builder
     StateDTO(DroneState state){
         uid = state.getUid();
-        desc= state.getDesc();
+        name= state.getName();
     }
 }
