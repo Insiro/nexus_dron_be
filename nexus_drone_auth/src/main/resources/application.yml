@@ -28,6 +28,7 @@ handlebars:
   expose-session-attribute: true
 eureka:
   instance:
+    hostname: nexus_drone_auth
     preferIpAddress: true
     lease-renewal-interval-in-seconds: 30
   client:

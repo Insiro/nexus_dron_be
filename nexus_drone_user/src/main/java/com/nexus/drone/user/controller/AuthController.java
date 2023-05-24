@@ -1,9 +1,17 @@
 package com.nexus.drone.user.controller;
 
+import com.nexus.drone.user.Token.Token;
+import com.nexus.drone.user.TokenServiceFeignClient;
 import com.nexus.drone.user.domain.User;
 import com.nexus.drone.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.List;
 
 @CrossOrigin("http://localhost:3000")
@@ -11,20 +19,24 @@ import java.util.List;
 public class AuthController {
     @Autowired
     private final UserRepository userRepository;
+    TokenServiceFeignClient tokenServiceFeignClient;
 
     public AuthController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @PostMapping("/api/auth")
-    public int login(@RequestBody User user) {
+    public ResponseEntity<Token> login(@RequestBody User user) {
         if (userRepository.findByID(user.getID()) == null) {
             //아이디가 없을때
-            return 0;
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         } else {
             if (!userRepository.findByID(user.getID()).getPwd().equals(user.getPwd()))
-                return 2;//비밀번호 없을때
-            else return 1;//통과
+                return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+            //비밀번호 없을때
+            else
+                return new ResponseEntity<>(tokenServiceFeignClient.getToken(), HttpStatus.OK);
+            //통과
         }
     }
     @GetMapping("/api/auth/{ID}")
