@@ -44,8 +44,9 @@ public class Drone {
         cal.setTime(date);
         cal.add(Calendar.YEAR, 1);
         this.manageDate = cal.getTime();
-        this.stateId =0;
+        this.stateId =1;
         this.modelId = modelId;
+        this.typeId = 1;
     }
 
     public Position getPosition(){
