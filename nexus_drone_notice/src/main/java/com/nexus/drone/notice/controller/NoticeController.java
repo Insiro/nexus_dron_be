@@ -2,6 +2,7 @@ package com.nexus.drone.notice.controller;
 
 import com.nexus.drone.notice.domain.Notice;
 import com.nexus.drone.notice.repository.NoticeRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,8 @@ public class NoticeController {
     @Autowired
     private final NoticeRepository noticeRepository;
     public NoticeController(NoticeRepository noticeRepository) { this.noticeRepository = noticeRepository;}
+    @Autowired
+    private HttpServletRequest request;
     @GetMapping("/api/notice")
     public List<Notice> getNotice(){
         List<Notice> notices = noticeRepository.findAll();
@@ -36,10 +39,11 @@ public class NoticeController {
 
     @PutMapping("/api/newNotice")
     public String createNotice(@RequestBody Notice notice){
+        String headerUUID = request.getHeader("X-Authorization-UUID");
         if(notice.getContent()!=null&&notice.getTitle()!=null){
             LocalDateTime currentTime = LocalDateTime.now();
-
             notice.setDate(currentTime);
+            notice.setWriter(headerUUID);
             noticeRepository.save(notice);
             return "notice create ok";
         }else{
