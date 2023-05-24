@@ -7,7 +7,6 @@ import com.nexus.drone.drone.repository.DroneTypeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class TypeService {
@@ -15,7 +14,7 @@ public class TypeService {
     TypeService(DroneTypeRepository repository){
         this.repository = repository;
     }
-    public List<DroneType> getModels() {
+    public List<DroneType> getAll() {
         return repository.findAll();
     }
 
@@ -24,7 +23,7 @@ public class TypeService {
         return repository.save(model);
     }
 
-    public DroneType getState(UUID uid) {
+    public DroneType getType(Long uid) {
         return repository.findById(uid).orElseThrow();
     }
     public void delete(DroneType model){
