@@ -13,7 +13,7 @@ spring:
     import: "optional:configserver:"
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   data:
     rest:

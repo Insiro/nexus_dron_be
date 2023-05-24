@@ -4,7 +4,6 @@ import com.nexus.drone.user.domain.User;
 import com.nexus.drone.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin("http://localhost:3000")
@@ -41,10 +40,15 @@ public class AuthController {
             return 1;
         }
     }
-    @PutMapping("api/user/{ID}")
-    public int changeInfo(@PathVariable("ID") String ID, User user){
-        userRepository.save(user);
-        return 1;
+    @PutMapping("api/user/{uuid}")
+    public User changeInfo(@PathVariable("uuid") Long uuid,@RequestBody User user){
+        User user1=userRepository.findById(uuid).get();
+        user1.setID(user.getID());
+        user1.setPwd(user.getPwd());
+        if(user.getImg()!=null)
+            user1.setImg(user.getImg());
+        userRepository.save(user1);
+        return user1;
     }
     @GetMapping("/api/user/{ID}")
     public User userinfo(@PathVariable("ID") String ID){
