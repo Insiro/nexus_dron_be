@@ -5,6 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.nexus.drone.nexus_drone_notice.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.nexus.drone.nexus_drone_notice.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.nexus.drone.nexus_drone_user.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.nexus.drone.nexus_drone_user.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/nexus_drone.iml" filepath="$PROJECT_DIR$/nexus_drone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nexus_drone_board.main.iml" filepath="$PROJECT_DIR$/.idea/modules/nexus_drone_board.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nexus_drone_drone.main.iml" filepath="$PROJECT_DIR$/.idea/modules/nexus_drone_drone.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nexus_drone_eureka.main.iml" filepath="$PROJECT_DIR$/.idea/modules/nexus_drone_eureka.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nexus_drone_gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/nexus_drone_gateway.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/nexus_drone_notice.main.iml" filepath="$PROJECT_DIR$/.idea/modules/nexus_drone_notice.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/nexus_drone_user.main.iml" filepath="$PROJECT_DIR$/.idea/modules/nexus_drone_user.main.iml" />
     </modules>

@@ -50,9 +50,9 @@ public class AuthController {
         userRepository.save(user1);
         return user1;
     }
-    @GetMapping("/api/user/{ID}")
-    public User userinfo(@PathVariable("ID") String ID){
-        return userRepository.findByID(ID);
+    @GetMapping("/api/user/{uuid}")
+    public User userinfo(@PathVariable("uuid") Long uuid){
+        return userRepository.findById(uuid).get();
     }
     @GetMapping("/api/user")
     public List<User> AllUser(){
