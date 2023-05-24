@@ -3,9 +3,9 @@ spring:
     gateway:
       routes:
         - id: nexus-test
-          uri: http://127.0.0.1:9010 # 인증 서버 URI
+          uri: http://127.0.0.1:8083 #인증 서버 URI
           predicates: # 요청 헤더나 Path 조건 비교
-            - Path=/test/** # 요청 Path
+            - Path=/api/** # 요청 Path
           filters:
             - AuthorizationHeaderFilter # JWT 검증을 위한 Custom GatewayFilter
 

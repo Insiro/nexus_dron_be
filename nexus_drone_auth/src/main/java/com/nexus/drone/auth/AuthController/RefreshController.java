@@ -38,7 +38,7 @@ public class RefreshController {
     @PostMapping("/auth/getToken")
     public ResponseEntity<String> makeToken(@RequestBody HashMap<String, String> bodyJson){
 
-        Map<String,String> map = authService.makeToken(bodyJson.get("UUID"));
+        Map<String,String> map = authService.makeToken(bodyJson.get("UUID"),bodyJson.get("Role"));
         
         if(map.get("status").equals("402")){
             RefreshApiResponseMessage refreshApiResponseMessage = new RefreshApiResponseMessage(map);

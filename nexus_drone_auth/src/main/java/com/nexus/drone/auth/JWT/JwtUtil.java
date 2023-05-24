@@ -1,6 +1,7 @@
 package com.nexus.drone.auth.JWT;
 
 import java.util.Date;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -18,23 +19,23 @@ public class JwtUtil {
     private static final long JWT_ACCESSTOKEN_VALIDITY = 5 * 60 * 60;
     private static final long JWT_REFRESHTOKEN_VALIDITY = 3 * 60 * 60 * 24;
 
-    public String createAccessToken(String uuid){
+    public String createAccessToken(Map<String,Object> user){
         return JWT.create()
-                .withSubject(uuid)
+                .withSubject(user.get("UUID").toString())
                 .withExpiresAt(new Date(System.currentTimeMillis() + JWT_ACCESSTOKEN_VALIDITY * 1000))
-                .withClaim("uuid", uuid)
+                .withClaim("user", user)
                 .sign(Algorithm.HMAC512(secret));
     }
 
-    public String createRefreshToken(String uuid){
+    public String createRefreshToken(Map<String,Object> user){
         return JWT.create()
-                .withSubject(uuid)
+                .withSubject(user.get("UUID").toString())
                 .withExpiresAt(new Date(System.currentTimeMillis() + JWT_REFRESHTOKEN_VALIDITY * 1000))
-                .withClaim("uuid", uuid)
+                .withClaim("user",user)
                 .sign(Algorithm.HMAC512(secret));
     }
 
-    public boolean AccessisValid(String token){
+    public boolean isValid(String token){
 
         try{
             JWT.require(Algorithm.HMAC512(secret)).build().verify(token);
@@ -44,17 +45,8 @@ public class JwtUtil {
         }
     }
 
-    public boolean RefreshisValid(String token){
-        try{
-            JWT.require(Algorithm.HMAC512(secret)).build().verify(token);
-            return true;
-        }catch (TokenExpiredException e){
-            return false;
-        }
-    }
-
-    public String getUUIDFromToken(String token){
-        return JWT.require(Algorithm.HMAC512(secret)).build().verify(token).getClaim("uuid").asString();
+    public Map<String,Object> getUserFromToken(String token){
+        return JWT.require(Algorithm.HMAC512(secret)).build().verify(token).getClaim("user").asMap();
     }
 
 }
