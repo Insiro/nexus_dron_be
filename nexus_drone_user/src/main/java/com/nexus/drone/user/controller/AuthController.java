@@ -48,12 +48,7 @@ public class AuthController {
             }//통과
         }
     }
-
-    @GetMapping("/api/auth/{ID}")
-    public User logininfo(@PathVariable("ID") String ID) {
-        return userRepository.findByID(ID);
-    }
-
+    
     @PostMapping("/api/auth/register")
     public int register(@RequestBody User user) {
         if (userRepository.findByID(user.getID()) != null)
