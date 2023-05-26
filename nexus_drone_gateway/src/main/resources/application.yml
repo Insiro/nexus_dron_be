@@ -5,12 +5,6 @@ spring:
   cloud:
     gateway:
       routes:
-
-        - id: nexus-eureka
-          uri: http://127.0.0.1:18001
-          predicates:
-            - Path=/auth/** # 해당 부분 수정 예정
-
         - id: nexus-auth
           uri: http://127.0.0.1:18010
           predicates:
@@ -19,21 +13,19 @@ spring:
         - id: nexus-user # User부분 로그인 회원가입 부분 endpoint 정해지면 해당 부분에 대해서만 filter 처리 제외 예정.
           uri: http://127.0.0.1:18020
           predicates:
-            - Path=/auth/** # 해당 부분 수정 예정
-          filters:
-            - AuthorizationHeaderFilter # JWT 검증을 위한 Custom GatewayFilter
+            - Path=/api/auth/**, /api/user/** # 해당 부분 수정 예정
 
         - id: nexus-notice
           uri: http://127.0.0.1:18030
           predicates:
-            - Path=/auth/** # 해당 부분 수정 예정
+            - Path=/api/notice/**, /api/newNotice/** # 해당 부분 수정 예정
           filters:
             - AuthorizationHeaderFilter # JWT 검증을 위한 Custom GatewayFilter
 
         - id: nexus-drone
           uri: http://127.0.0.1:18040
           predicates:
-            - Path=/auth/** # 해당 부분 수정 예정
+            - Path=/drones/** # 해당 부분 수정 예정
           filters:
             - AuthorizationHeaderFilter # JWT 검증을 위한 Custom GatewayFilter
 eureka:
