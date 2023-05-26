@@ -20,7 +20,7 @@ jobs:
           port: ${{ secrets.REMOTE_PORT }}
           script: |
             cd ./nexus_drone_be
-            git pull
+            git pull origin addDocker
             bash -c 'cd ./nexus_drone_eureka && chmod +x ./gradlew &&./gradlew bootJar && cd ../'
             bash -c 'cd ./nexus_drone_gateway && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
             bash -c 'cd ./nexus_drone_auth && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
