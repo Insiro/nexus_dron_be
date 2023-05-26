@@ -29,7 +29,7 @@ jobs:
             screen -dms nexus_auth bash -c 'chmod +x ./nexus_drone_auth/gradlew && ./nexus_drone_auth/gradlew bootJar'
             screen -S nexus_notice  -X quite
             screen -dms nexus_notice bash -c 'chmod +x ./nexus_drone_notice/gradlew && ./nexus_drone_notice/gradlew bootJar'
-            #screen -S nexus_user  -X quite
-            #screen -dms nexus_user bash -c 'chmod +x ./nexus_drone_user/gradlew && ./nexus_drone_user/gradlew bootJar'
-            #screen -S nexus_drone  -X quite
-            #screen -dms nexus_drone bash -c 'chmod +x ./nexus_drone_drone/gradlew && ./nexus_drone_drone/gradlew bootJar'
+            screen -S nexus_user  -X quite
+            screen -dms nexus_user bash -c 'chmod +x ./nexus_drone_user/gradlew && ./nexus_drone_user/gradlew bootJar'
+            screen -S nexus_drone  -X quite
+            screen -dms nexus_drone bash -c 'chmod +x ./nexus_drone_drone/gradlew && ./nexus_drone_drone/gradlew bootJar'
