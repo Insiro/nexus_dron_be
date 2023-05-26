@@ -31,3 +31,5 @@ jobs:
             screen -dmS nexus_notice bash -c './nexus_drone_notice/gradlew bootRun'
             screen -S nexus_user  -X quite
             screen -dmS nexus_user bash -c './nexus_drone_user/gradlew bootRun'
+            screen -S nexus_drone  -X quite
+            screen -dmS nexus_drone bash -c './nexus_drone_drone/gradlew bootRun'
