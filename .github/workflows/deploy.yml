@@ -29,14 +29,14 @@ jobs:
             bash -c 'cd ./nexus_drone_drone && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
 
             screen -S nexus_eureka  -X quit
-            screen -dms nexus_eureka bash -c 'cd ./nexus_drone_eureka && docker build --tag eureka:0.3 ./ && docker run -p 18000:18000 -p 18001:18001 -p 18010:18010 -p 18020:18020 -p 18030:18030 -p 18040:18040 eureka:0.3 && cd ../'
+            screen -dms nexus_eureka bash -c 'cd ./nexus_drone_eureka && docker build --tag eureka:0.3 ./ && docker run -p 18001:18001 eureka:0.3'
             screen -S nexus_gateway  -X quit
-            screen -dms nexus_gateway bash -c 'cd /nexus_drone_gateway && docker build --tag gateway:0.3 ./ && docker run -p 18000:18000 -p 18001:18001 -p 18010:18010 -p 18020:18020 -p 18030:18030 -p 18040:18040 gateway:0.3 && cd ../'
+            screen -dms nexus_gateway bash -c 'cd ./nexus_drone_gateway && docker build --tag gateway:0.3 ./ && docker run -p 18000:18000 gateway:0.3 && cd ../'
             screen -S nexus_auth  -X quit
-            screen -dms nexus_auth bash -c 'cd ./nexus_drone_auth && docker build --tag auth:0.3 ./ && docker run -p 18000:18000 -p 18001:18001 -p 18010:18010 -p 18020:18020 -p 18030:18030 -p 18040:18040 auth:0.3 && cd ../'
+            screen -dms nexus_auth bash -c 'cd ./nexus_drone_auth && docker build --tag auth:0.3 ./ && docker run -p 18010:18010 auth:0.3 && cd ../'
             screen -S nexus_notice  -X quit
-            screen -dms nexus_notice bash -c 'cd ./nexus_drone_notice && docker build --tag notice:0.3 ./ && docker run -p 18000:18000 -p 18001:18001 -p 18010:18010 -p 18020:18020 -p 18030:18030 -p 18040:18040 notice:0.3 && cd ../'
+            screen -dms nexus_notice bash -c 'cd ./nexus_drone_notice && docker build --tag notice:0.3 ./ && docker run -p 18030:18030 notice:0.3 && cd ../'
             screen -S nexus_user  -X quit
-            screen -dms nexus_user bash -c 'cd ./nexus_drone_user && docker build --tag user:0.3 ./ && docker run -p 18000:18000 -p 18001:18001 -p 18010:18010 -p 18020:18020 -p 18030:18030 -p 18040:18040 user:0.3 && cd ../'
+            screen -dms nexus_user bash -c 'cd ./nexus_drone_user && docker build --tag user:0.3 ./ && docker run -p 18020:18020 user:0.3 && cd ../'
             screen -S nexus_drone  -X quit
-            screen -dms nexus_drone bash -c 'cd ./nexus_drone_drone && docker build --tag drone:0.3 ./ && docker run -p 18000:18000 -p 18001:18001 -p 18010:18010 -p 18020:18020 -p 18030:18030 -p 18040:18040 drone:0.3 && cd ../'
+            screen -dms nexus_drone bash -c 'cd ./nexus_drone_drone && docker build --tag drone:0.3 ./ && docker run -p 18040:18040 drone:0.3 && cd ../'
