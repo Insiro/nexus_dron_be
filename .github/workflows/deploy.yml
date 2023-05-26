@@ -22,14 +22,14 @@ jobs:
             cd ./nexus_drone_be
             git pull
             screen -S nexus_eureka  -X quite
-            screen -dms nexus_eureka bash -c 'chmod +x ./nexus_drone_eureka/gradlew &&./nexus_drone_eureka/gradlew bootRun'
+            screen -dms nexus_eureka bash -c 'chmod +x ./nexus_drone_eureka/gradlew &&./nexus_drone_eureka/gradlew bootJar'
             screen -S nexus_gateway  -X quite
-            screen -dms nexus_gateway bash -c 'chmod +x ./nexus_drone_gateway/gradlew && ./nexus_drone_gateway/gradlew bootRun'
+            screen -dms nexus_gateway bash -c 'chmod +x ./nexus_drone_gateway/gradlew && ./nexus_drone_gateway/gradlew bootJar'
             screen -S nexus_auth  -X quite
-            screen -dms nexus_auth bash -c 'chmod +x ./nexus_drone_auth/gradlew && ./nexus_drone_auth/gradlew bootRun'
+            screen -dms nexus_auth bash -c 'chmod +x ./nexus_drone_auth/gradlew && ./nexus_drone_auth/gradlew bootJar'
             screen -S nexus_notice  -X quite
-            screen -dms nexus_notice bash -c 'chmod +x ./nexus_drone_notice/gradlew && ./nexus_drone_notice/gradlew bootRun'
+            screen -dms nexus_notice bash -c 'chmod +x ./nexus_drone_notice/gradlew && ./nexus_drone_notice/gradlew bootJar'
             #screen -S nexus_user  -X quite
-            #screen -dms nexus_user bash -c 'chmod +x ./nexus_drone_user/gradlew && ./nexus_drone_user/gradlew bootRun'
+            #screen -dms nexus_user bash -c 'chmod +x ./nexus_drone_user/gradlew && ./nexus_drone_user/gradlew bootJar'
             #screen -S nexus_drone  -X quite
-            #screen -dms nexus_drone bash -c 'chmod +x ./nexus_drone_drone/gradlew && ./nexus_drone_drone/gradlew bootRun'
+            #screen -dms nexus_drone bash -c 'chmod +x ./nexus_drone_drone/gradlew && ./nexus_drone_drone/gradlew bootJar'
