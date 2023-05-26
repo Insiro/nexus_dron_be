@@ -1,0 +1,33 @@
+name: Deploy_and build
+    
+on:
+    push:
+        branches: [ master ]
+    workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy then build
+    runs-on: [ubuntu-latest]
+    
+    steps:
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_SSH_ID }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.REMOTE_PORT }}
+          script: |
+            cd nexus_drone
+            git pull
+            screen -S nexus_eureka  -X quite
+            screen -dmS nexus_eureka bash -c './nexus_drone_eureka/gradlew bootRun'
+            screen -S nexus_gateway  -X quite
+            screen -dmS nexus_gateway bash -c './nexus_drone_gateway/gradlew bootRun'
+            screen -S nexus_auth  -X quite
+            screen -dmS nexus_auth bash -c './nexus_drone_auth/gradlew bootRun'
+            screen -S nexus_notice  -X quite
+            screen -dmS nexus_notice bash -c './nexus_drone_notice/gradlew bootRun'
+            screen -S nexus_user  -X quite
+            screen -dmS nexus_user bash -c './nexus_drone_user/gradlew bootRun'
