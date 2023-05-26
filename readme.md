@@ -6,6 +6,8 @@ currently, drone connection functionality is not defined,
 but after drone is ready it will resume
 
 ## tested env
+|env|version|
+|--|--|
 |ubuntu|22.04|
 
 
