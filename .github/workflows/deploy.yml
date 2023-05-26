@@ -22,11 +22,11 @@ jobs:
             cd ./nexus_drone_be
             git pull
             nohup bash -c 'cd ./nexus_drone_eureka && chmod +x ./gradlew &&./gradlew bootJar && cd ../'
-            nohup bash -c 'cd /nexus_drone_gateway && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
+            nohup bash -c 'cd ./nexus_drone_gateway && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
             nohup bash -c 'cd ./nexus_drone_auth && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
             nohup bash -c 'cd ./nexus_drone_notice && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
             nohup bash -c 'cd ./nexus_drone_user && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
-            nobup bash -c 'cd ./nexus_drone_drone && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
+            nohup bash -c 'cd ./nexus_drone_drone && chmod +x ./gradlew && ./gradlew bootJar && cd ../'
             wait()
             
             #screen -S nexus_eureka  -X quit
