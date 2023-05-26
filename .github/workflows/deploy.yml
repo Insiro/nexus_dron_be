@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.REMOTE_PORT }}
           script: |
-            cd nexus_drone_be
+            cd ./nexus_drone_be
             git pull
             screen -S nexus_eureka  -X quite
             screen -dmS nexus_eureka bash -c './nexus_drone_eureka/gradlew bootRun'
