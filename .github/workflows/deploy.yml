@@ -1,15 +1,15 @@
 name: Deploy_and build
-    
+
 on:
-    push:
-        branches: [ master ]
-    workflow_dispatch:
+  push:
+    branches: [master]
+  workflow_dispatch:
 
 jobs:
   deploy:
     name: Deploy then build
     runs-on: [ubuntu-latest]
-    
+
     steps:
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@master
